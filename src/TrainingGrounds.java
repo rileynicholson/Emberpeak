@@ -18,6 +18,9 @@ public class TrainingGrounds {
 		
 		if (isInsufficient) {
 			System.out.println("\n3. NOW AVAILABLE: Stamina");
+			System.out.println("\n4. Exit");
+		} else {
+			System.out.println("3. Exit");
 		}
 		
 		System.out.println("\nEnter option:");
@@ -26,8 +29,12 @@ public class TrainingGrounds {
 		
 		if (userInput.contains("1")||userInput.contains("attack")) {
 			// Attacking option
+			Menu.newPage();
 			
-			gains = attack(scanner, pet);
+			System.out.println("Getting the attack dummies ready");
+			
+			Menu.transition();
+			attack(scanner, pet);
 		} else if (userInput.contains("2")||userInput.contains("defend")) {
 			// Defending option
 			
@@ -40,24 +47,49 @@ public class TrainingGrounds {
 		}
 	}
 	
-	public static int attack(Scanner scanner, UserInformation pet) {
+	public static void attack(Scanner scanner, UserInformation pet) {
 		Menu.newPage();
 		
 		int randomGame = random.nextInt(1,3);
-		int value = 0;
+		int gainValue = 0;
+		int staminaValue = 0;
 		
 		System.out.println("Attack Exercise: ");
 		System.out.println("");
 		
 		if (randomGame == 1) {
-			value = randomNumberGuess(scanner, pet);
+			gainValue = randomNumberGuess(scanner, pet);
 		} else if (randomGame == 2) {
-			
+			// One game here
 		} else if (randomGame == 3) {
+			// Another game here
+		}
+		
+		gainValue += pet.getAttackLevel();
+		pet.setAttackLevel(gainValue);
+		
+		try {
+			Thread.sleep(5000);
+		} catch (Exception e) {
 			
 		}
 		
-		return value;
+		Menu.newPage();
+		staminaValue = pet.getStamina();
+		int staminaDecreased = random.nextInt(1,7);
+		staminaValue -= staminaDecreased;
+		pet.setStamina(staminaValue);
+		System.out.println("-" + staminaDecreased + " Stamina. You are now at " + pet.getStamina() + " Stamina total.");
+		
+		try {
+			Thread.sleep(4000);
+		} catch (Exception e) {
+			
+		}
+		
+		Menu.newPage();
+		scanner.nextLine();
+		menu(scanner, pet, false);
 	}
 	
 	public static int randomNumberGuess(Scanner scanner, UserInformation pet) {
@@ -92,9 +124,9 @@ public class TrainingGrounds {
 		
 		// For the results statement to the user being grammatically correct
 		if (value > 1) {
-			System.out.println("The number was " + randomValue + " and you guessed " + userInput + ". You are awarded " + value + "points!");
+			System.out.println("The number was " + randomValue + " and you guessed " + userInput + ". You are awarded " + value + " points!");
 		} else {
-			System.out.println("The number was " + randomValue + " and you guessed " + userInput + ". You are awarded " + value + "point!");
+			System.out.println("The number was " + randomValue + " and you guessed " + userInput + ". You are awarded " + value + " point!");
 		}
 		
 		return value;

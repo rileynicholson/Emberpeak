@@ -104,11 +104,11 @@ public class Menu {
 		} else if (userInput.contains("1")||userInput.contains("explore")) {
 			// Explore
 			
-		} else if (userInput.contains("2")||userInput.contains("training")||userInput.contains("grounds")) {
+		} else if (userInput.contains("2")||userInput.contains("train")||userInput.contains("grounds")) {
 			// Training grounds
 			newPage();
 			
-			System.out.println("Loading");
+			System.out.println("Traveling to the Training Grounds");
 			
 			transition();
 			TrainingGrounds.menu(scanner, pet, false);

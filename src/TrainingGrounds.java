@@ -4,9 +4,9 @@ import java.util.Random;
 public class TrainingGrounds {
 	static Random random = new Random();
 	
+	// The Main Menu of the Training Grounds
 	public static void menu(Scanner scanner, UserInformation pet, boolean isInsufficient) {
 		String userInput;
-		int gains;
 		
 		System.out.println("Training Grounds");
 		System.out.println("===================");
@@ -31,26 +31,52 @@ public class TrainingGrounds {
 			// Attacking option
 			Menu.newPage();
 			
-			System.out.println("Getting the attack dummies ready");
+			System.out.println("Getting the Attack Dummies Ready");
 			
 			Menu.transition();
 			attack(scanner, pet);
 		} else if (userInput.contains("2")||userInput.contains("defend")) {
 			// Defending option
+			Menu.newPage();
 			
-		} else if (userInput.contains("3")||userInput.contains("stamina")) {
-			// Stamina option
+			System.out.println("Getting the ________ Ready");
 			
-			if (isInsufficient) {
-				// Run something here if it satisfies the condition
+			Menu.transition();
+			defend(scanner, pet);
+		} 
+		
+		if (isInsufficient) {
+			
+			if (userInput.contains("3")||userInput.contains("stamina")) {
+				// Stamina output
+				
+			} else if (userInput.contains("4")||userInput.contains("exit")) {
+				// Exit output
+				Menu.newPage();
+				
+				System.out.println("Traveling back to Town Center");
+				Menu.transition();
+				Menu.hubMenu(scanner, false, pet);
+			}
+		} else {
+			
+			if (userInput.contains("3")||userInput.contains("exit")) {
+				// Exit output
+				Menu.newPage();
+				
+				System.out.println("Traveling back to the Town Center");
+				Menu.transition();
+				Menu.hubMenu(scanner, false, pet);
 			}
 		}
+		
 	}
 	
+	// Attacking Training
 	public static void attack(Scanner scanner, UserInformation pet) {
 		Menu.newPage();
 		
-		int randomGame = random.nextInt(1,3);
+		int randomGame = random.nextInt(1,4);
 		int gainValue = 0;
 		int staminaValue = 0;
 		
@@ -60,9 +86,13 @@ public class TrainingGrounds {
 		if (randomGame == 1) {
 			gainValue = randomNumberGuess(scanner, pet);
 		} else if (randomGame == 2) {
-			// One game here
+			// Different game here
+			// Random Number Guess will be here for now
+			gainValue = randomNumberGuess(scanner, pet);
 		} else if (randomGame == 3) {
 			// Another game here
+			// Random Number Guess will be here for now
+			gainValue = randomNumberGuess(scanner, pet);
 		}
 		
 		gainValue += pet.getAttackLevel();
@@ -76,7 +106,7 @@ public class TrainingGrounds {
 		
 		Menu.newPage();
 		staminaValue = pet.getStamina();
-		int staminaDecreased = random.nextInt(1,7);
+		int staminaDecreased = random.nextInt(1,12);
 		staminaValue -= staminaDecreased;
 		pet.setStamina(staminaValue);
 		System.out.println("-" + staminaDecreased + " Stamina. You are now at " + pet.getStamina() + " Stamina total.");
@@ -89,9 +119,70 @@ public class TrainingGrounds {
 		
 		Menu.newPage();
 		scanner.nextLine();
-		menu(scanner, pet, false);
+		
+		if (pet.getStamina() <= 11) {
+			menu(scanner, pet, true);
+		} else {
+			menu(scanner, pet, false);
+		}
 	}
 	
+	// Defending Training
+	public static void defend(Scanner scanner, UserInformation pet) {
+		Menu.newPage();
+		
+		int randomGame = random.nextInt(1,4);
+		int gainValue = 0;
+		int staminaValue = 0;
+		
+		System.out.println("Defence Exercise:");
+		System.out.println("");
+		
+		if (randomGame == 1) {
+			gainValue = randomNumberGuess(scanner, pet);
+		} else if (randomGame == 2) {
+			// Different game here
+			// Random number guess will be here for now
+			gainValue = randomNumberGuess(scanner, pet);
+		} else if (randomGame == 3) {
+			// Another game here
+			// Random number guess will be here for now
+			gainValue = randomNumberGuess(scanner, pet);
+		}
+		
+		gainValue += pet.getDefenseLevel();
+		pet.setDefenseLevel(gainValue);
+		
+		try {
+			Thread.sleep(4000);
+		} catch (Exception e) {
+			
+		}
+		
+		Menu.newPage();
+		staminaValue = pet.getStamina();
+		int staminaDecreased = random.nextInt(1,12);
+		staminaValue -= staminaDecreased;
+		pet.setStamina(staminaValue);
+		System.out.println("-" + staminaDecreased + " Stamina. You are now at " + pet.getStamina() + " Stamina total.");
+		
+		try {
+			Thread.sleep(4000);
+		} catch (Exception e) {
+			
+		}
+		
+		Menu.newPage();
+		scanner.nextLine();
+		
+		if (pet.getStamina() <= 11) {
+			menu(scanner, pet, true);
+		} else {
+			menu(scanner, pet, false);
+		}
+	}
+	
+	// Random Number Guesser Game
 	public static int randomNumberGuess(Scanner scanner, UserInformation pet) {
 		int value = 0;
 		int randomValue = random.nextInt(1,11);
@@ -105,7 +196,7 @@ public class TrainingGrounds {
 		} else if (userInput > randomValue) {
 			int diff = userInput - randomValue;
 			
-			if (diff <= 3) {
+			if (diff <= 2) {
 				value = 5;
 			} else {
 				value = 1;
@@ -113,7 +204,7 @@ public class TrainingGrounds {
 		} else if (userInput < randomValue) {
 			int diff = randomValue - userInput;
 			
-			if (diff <= 3) {
+			if (diff <= 2) {
 				value = 5;
 			} else {
 				value = 1;

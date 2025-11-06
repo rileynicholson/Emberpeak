@@ -8,7 +8,7 @@ Gameplay:
 - Navigate through menus to explore the world, train your pet, and interact with NPCs all over Emberpeak!
 - All actions are text-based, and your choices will affect your pet's leveling.
 
-Battles:
+Battles: (SOON TO BE ADDED)
 - The battle style for this game is similar to Pokémon. The user will have the options to fight, use items, and even flee (unless it is the Tower of Keldor).
 - For example, if the user wants to choose the fight option during a battle, then the user will either enter "1" or "Fight" and the program will understand what the user is trying to get their pet to do.
 
@@ -17,25 +17,25 @@ Pet Training and Leveling:
 - Although training the pet will level the pet up, training the pet will cause the pet's stamina to go down.
 - The only way to get your pet's stamina back up is to have your pet sleep in the pet living quarters in the Training Grounds.
 
-Exploration:
+Exploration: (SOON TO BE ADDED)
 - The vast world of Emberpeak is filled with challenges! The main challenges that are out now include The Frontier (for pets of all levels) and the Tower of Keldor (for higher levels).
 - The Frontier is accessible for all levels while Tower of Keldor requires the Key of Valor to enter. The Key of Valor drops randomly when you slay creatures found in The Frontier with a level greater than 20.
 
-The Tower of Keldor:
+The Tower of Keldor: (SOON TO BE ADDED)
 - The Tower of Keldor is the toughest challenge out of all other challenges in the game. The tower contains 20 floors and the floors get progressively harder as the user moves forward.
 - Each floor contains a creature that needs to be slain to move on to the next floor. The first floor starts with something as easy as a Slimer, and the 20th floor contains almighty Keldor himself.
 - Checkpoints are not allowed in the Tower. If the user dies, then the user will lose all of their progress and start from the beginning.
 
-The Frontier:
+The Frontier: (SOON TO BE ADDED)
 - The Frontier is open to all levels and the creatures get harder as your pet levels up.
 - As the user's pet defeats creatures, your pet will also gain more attack and defense levels, making this another way to level up your pet.
 - As creatures are defeated, items will drop at random from the creatures.
 
-Item Drops:
+Item Drops: (SOON TO BE ADDED)
 - Item Drops come from monsters most notably from The Frontier.
 - The items range include heals that heal your pet mid-fight and boosters that increase your pet's stats mid-fight.
 
-Help Center:
+Help Center: (SOON TO BE ADDED)
 - The Help Center is a center located in the heart of the main city. If it exists, then the Help Center can tell you more about it and help you with it!
 - All the user has to do to get the center to work is to type in terms and the employees in the Help Center will help from there!
 - The Help Center can also be used to look at pet stats.

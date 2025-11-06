@@ -9,10 +9,8 @@ public class TrainingGrounds {
 		String userInput;
 		
 		System.out.println("Training Grounds");
-		System.out.println("===================");
-		System.out.println("");
-		System.out.println("What would you like to train today?");
-		System.out.println("");
+		System.out.println("===================\n");
+		System.out.println("What would you like to train today?\n");
 		System.out.println("1. Attacking");
 		System.out.println("2. Defending");
 		
@@ -27,7 +25,7 @@ public class TrainingGrounds {
 		userInput = scanner.nextLine();
 		userInput = userInput.toLowerCase();
 		
-		if (userInput.contains("1")||userInput.contains("attack")) {
+		if (userInput.contains("1")&&isInsufficient == false||userInput.contains("attack")&&isInsufficient == false) {
 			// Attacking option
 			Menu.newPage();
 			
@@ -35,21 +33,23 @@ public class TrainingGrounds {
 			
 			Menu.transition();
 			attack(scanner, pet);
-		} else if (userInput.contains("2")||userInput.contains("defend")) {
+		} else if (userInput.contains("2")&&isInsufficient == false||userInput.contains("defend")&&isInsufficient == false) {
 			// Defending option
 			Menu.newPage();
 			
-			System.out.println("Getting the ________ Ready");
+			System.out.println("Getting Baby " + pet.getPetName() + " into Armor");
 			
 			Menu.transition();
 			defend(scanner, pet);
-		} 
+		}
 		
 		if (isInsufficient) {
 			
 			if (userInput.contains("3")||userInput.contains("stamina")) {
 				// Stamina output
+				Menu.newPage();
 				
+				stamina(scanner, pet);
 			} else if (userInput.contains("4")||userInput.contains("exit")) {
 				// Exit output
 				Menu.newPage();
@@ -58,7 +58,7 @@ public class TrainingGrounds {
 				Menu.transition();
 				Menu.hubMenu(scanner, false, pet);
 			}
-		} else {
+		} else if (!isInsufficient) {
 			
 			if (userInput.contains("3")||userInput.contains("exit")) {
 				// Exit output
@@ -70,6 +70,26 @@ public class TrainingGrounds {
 			}
 		}
 		
+		 if (!userInput.contains("1")||!userInput.contains("2")||!userInput.contains("3")||!userInput.contains("stamina")||!userInput.contains("exit")||!userInput.contains("attack")||!userInput.contains("defend")) {
+				// Runs if the input is not recognized
+				Menu.newPage();
+				
+				System.out.println("Error: Input not recognized, please try again.");
+				
+				try {
+					Thread.sleep(4000);
+				} catch (Exception e) {
+					
+				}
+				
+				Menu.newPage();
+				
+				if (isInsufficient) {
+					menu(scanner, pet, true);
+				} else {
+					menu(scanner, pet, false);
+				}
+			}
 	}
 	
 	// Attacking Training
@@ -180,6 +200,52 @@ public class TrainingGrounds {
 		} else {
 			menu(scanner, pet, false);
 		}
+	}
+	
+	// Stamina regeneration
+	public static void stamina(Scanner scanner, UserInformation pet) {
+		Menu.newPage();
+		
+		System.out.println("Sending Baby " + pet.getPetName() + " to the Napping Quarters");
+		Menu.transition();
+		Menu.newPage();
+		
+		System.out.println("The process takes about half a minute!");
+		
+		try {
+			Thread.sleep(4000);
+		} catch (Exception e) {
+			
+		}
+		
+		Menu.newPage();
+		
+		for (int i = 0; i <= 5; i++) {
+			System.out.println("      Z");
+			System.out.println("   Z");
+			System.out.println("| - - - |");
+			System.out.println("Baby " + pet.getPetName() + " is sleeping!");
+			
+			try {
+				Thread.sleep(4000);
+			} catch (Exception e) {
+				
+			}
+			
+			Menu.transition();
+		}
+		
+		pet.setStamina(50);
+		System.out.println("The stamina of " + pet.getPetName() + " is now full!");
+		
+		try {
+			Thread.sleep(4000);
+		} catch (Exception e) {
+			
+		}
+		
+		Menu.newPage();
+		menu(scanner, pet, false);
 	}
 	
 	// Random Number Guesser Game

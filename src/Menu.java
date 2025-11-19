@@ -112,6 +112,14 @@ public class Menu {
 			
 			transition();
 			TrainingGrounds.menu(scanner, pet, false);
+		} else if (userInput.contains("3")||userInput.contains("help")||userInput.contains("center")) {
+			// Help center
+			newPage();
+			
+			System.out.println("Traveling to the Help Center");
+			
+			transition();
+			HelpCenter.menu(scanner, pet, true);
 		}
 	}
 	

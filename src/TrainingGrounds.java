@@ -115,14 +115,16 @@ public class TrainingGrounds {
 			gainValue = randomNumberGuess(scanner, pet);
 		}
 		
-		gainValue += pet.getAttackLevel();
-		pet.setAttackLevel(gainValue);
+		gainValue += pet.getAttackProgression();
+		pet.setAttackProgression(gainValue);
 		
 		try {
 			Thread.sleep(5000);
 		} catch (Exception e) {
 			
 		}
+		
+		LevelUp.checkForLevelUp(scanner, pet);
 		
 		Menu.newPage();
 		staminaValue = pet.getStamina();
@@ -171,13 +173,15 @@ public class TrainingGrounds {
 		}
 		
 		gainValue += pet.getDefenseLevel();
-		pet.setDefenseLevel(gainValue);
+		pet.setDefenseProgression(gainValue);
 		
 		try {
 			Thread.sleep(4000);
 		} catch (Exception e) {
 			
 		}
+		
+		LevelUp.checkForLevelUp(scanner, pet);
 		
 		Menu.newPage();
 		staminaValue = pet.getStamina();
@@ -236,7 +240,7 @@ public class TrainingGrounds {
 		}
 		
 		pet.setStamina(50);
-		System.out.println("The stamina of " + pet.getPetName() + " is now full!");
+		System.out.println(pet.getPetName() + " is now fully recharged!");
 		
 		try {
 			Thread.sleep(4000);

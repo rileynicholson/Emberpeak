@@ -7,16 +7,18 @@ public class UserInformation {
 	private int attackLevel;
 	private int defenseLevel;
 	private int items;
-	private double progression;
+	private double attackProgression;
+	private double defenseProgression;
 	private int stamina;
 	
-	UserInformation(String petName, int level, int attackLevel, int defenseLevel, int items, double progression, int stamina) {
+	UserInformation(String petName, int level, int attackLevel, int defenseLevel, int items, double attackProgression, double defenseProgression, int stamina) {
 		this.petName = petName;
 		this.level = level;
 		this.attackLevel = attackLevel;
 		this.defenseLevel = defenseLevel;
 		this.items = items;
-		this.progression = progression;
+		this.attackProgression = attackProgression;
+		this.defenseProgression = defenseProgression;
 		this.stamina = stamina;
 	}
 
@@ -60,12 +62,20 @@ public class UserInformation {
 		this.items = items;
 	}
 
-	public double getProgression() {
-		return progression;
+	public double getAttackProgression() {
+		return attackProgression;
 	}
 
-	public void setProgression(double progression) {
-		this.progression = progression;
+	public void setAttackProgression(double attackProgression) {
+		this.attackProgression = attackProgression;
+	}
+	
+	public double getDefenseProgression() {
+		return defenseProgression;
+	}
+
+	public void setDefenseProgression(double defenseProgression) {
+		this.defenseProgression = defenseProgression;
 	}
 
 	public int getStamina() {

@@ -103,7 +103,13 @@ public class Menu {
 			}
 		} else if (userInput.contains("1")||userInput.contains("explore")) {
 			// Explore
+			newPage();
 			
+			System.out.println("1. Traveling to the Railroad Station");
+			
+			transition();
+			
+			Explore.menu(scanner, pet);
 		} else if (userInput.contains("2")||userInput.contains("train")||userInput.contains("grounds")) {
 			// Training grounds
 			newPage();

@@ -11,6 +11,7 @@ public class Menu {
 		
 	}
 	
+	// Transition animation
 	public static void transition() {
 		
 		for (int i = 0; i < 3; i++) {
@@ -33,12 +34,14 @@ public class Menu {
 		newPage();
 	}
 	
+	// Opening animation at the beginning of the project
 	public static void introductionAnimation() {
 		System.out.printf("\n%-50s %-26s", "/", "\\");
 	
 		// WIP
 	}
 	
+	// Main menu at the beginning of the project
 	public static void mainMenu(Scanner scanner, UserInformation pet) {
 		String userInput;
 		
@@ -70,12 +73,13 @@ public class Menu {
 		}
 	}
 	
+	// Main menu for the game
 	public static void hubMenu(Scanner scanner, boolean isFirstTime, UserInformation pet) {
 		boolean firstTime = isFirstTime;
 		String userInput;
 		
 		System.out.println("=================");
-		System.out.println("|| The town of ||");
+		System.out.println("|| The Town of ||");
 		System.out.println("||  Emberpeak  ||");
 		System.out.println("=================");
 		System.out.println("        ||");
@@ -98,14 +102,14 @@ public class Menu {
 		if (userInput.contains("0")||userInput.contains("tutorial")) {
 			// Tutorial
 			
-			if (firstTime == true) {
+			if (firstTime == true) { // Only works if the option is displayed
 				tutorial(scanner, pet);
 			}
 		} else if (userInput.contains("1")||userInput.contains("explore")) {
 			// Explore
 			newPage();
 			
-			System.out.println("1. Traveling to the Railroad Station");
+			System.out.println("Traveling to the Railroad Station");
 			
 			transition();
 			
@@ -129,6 +133,7 @@ public class Menu {
 		}
 	}
 	
+	// Menu for Tutorial
 	public static void displayMenu() {
 		System.out.println("");
 		System.out.println("");
@@ -139,12 +144,14 @@ public class Menu {
 		System.out.println("5. Exit the game");
 	}
 	
+	// Header for Tutorial
 	public static void tutorialHeader() {
 		System.out.println("TUTORIAL: (PRESS ENTER TO CONTINUE)");
 		System.out.println("");
 		System.out.println("");
 	}
 	
+	// Tutorial
 	public static void tutorial(Scanner scanner, UserInformation pet) {
 		newPage();
 		tutorialHeader();

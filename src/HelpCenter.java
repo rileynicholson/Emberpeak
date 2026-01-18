@@ -42,6 +42,7 @@ public class HelpCenter {
 		}
 	}
 	
+	// Desk person
 	public static void deskPerson() {
 		System.out.println("(=_=)\n");
 		
@@ -116,8 +117,20 @@ public class HelpCenter {
 			menu(scanner, Pet, false);
 		}
 		
-		if (term.contains("something")&&term.contains("something else")) {
+		if (term.contains("railways")) { // Emberpeak Railways
+			Menu.newPage();
 			
+			System.out.println("(Press enter to continue)");
+			System.out.println("Emberpeak Railways is a free, nonprofit transportation company that travels all over the lands of Emberpeak!");
+			System.out.println("The Railways have existed since the land was inhabited, but the Emberpeak Railways company took over only recently!");
+			System.out.println("They believe transportation is a basic human right and don't charge a single penny!");
+			System.out.println("Whenever you want to go somewhere, go to them! They are great people and will take you anywhere!");
+			deskPerson();
+			
+			String enter = scanner.nextLine();
+			
+			Menu.newPage();
+			menu(scanner, Pet, false);
 		}
 		
 		if (term.contains("1")) { // List of terms
